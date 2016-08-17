@@ -16,6 +16,9 @@
 @property (strong, nonatomic) DMGestureRecognizerTransition *enterGesture;
 @property (strong, nonatomic) DMGestureRecognizerTransition *exitGesture;
 
+@property (assign, nonatomic) NSTimeInterval transitionEnterDuration;
+@property (assign, nonatomic) NSTimeInterval transitionExitDuration;
+
 /**
  *  配置切入动画，自定义动画时子类应当重写这个方法
  *

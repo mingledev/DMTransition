@@ -16,8 +16,6 @@ typedef NS_ENUM(NSUInteger, DMTransitionType) {
 
 @interface DMTransitionAnimator ()
 
-@property (assign, nonatomic) NSTimeInterval transitionEnterDuration;
-@property (assign, nonatomic) NSTimeInterval transitionExitDuration;
 @property (assign, nonatomic) DMTransitionType transitionType;
 @property (assign, nonatomic) UINavigationControllerOperation operation;
 
