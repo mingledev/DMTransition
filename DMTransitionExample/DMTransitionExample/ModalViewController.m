@@ -10,6 +10,10 @@
 
 @implementation ModalViewController
 
+- (void)dealloc {
+    NSLog(@"%s", __FUNCTION__);
+}
+
 - (IBAction)dismissOnClick:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

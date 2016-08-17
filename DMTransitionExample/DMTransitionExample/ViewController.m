@@ -20,6 +20,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    UIViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ModalViewController"];
+    vc.transitionAnimator = [DMPushBounceAnimator new];
+    DMGestureRecognizerTransition *enterGestureTransition = [DMGestureRecognizerTransition new];
+    [enterGestureTransition addGestureToView:self.view direction:DMGestureRecognizerLeft];
+    [enterGestureTransition setGestureBeganCallback:^{
+        [self.navigationController presentViewController:vc animated:YES completion:nil];
+    }];
+    DMGestureRecognizerTransition *exitGestureTransition = [DMGestureRecognizerTransition new];
+    [exitGestureTransition addGestureToView:vc.view direction:DMGestureRecognizerRight];
+    [exitGestureTransition setGestureBeganCallback:^{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    vc.transitionAnimator.exitGesture = exitGestureTransition;
+    vc.transitionAnimator.enterGesture = enterGestureTransition;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,7 +45,7 @@
     UIViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ModalViewController"];
     vc.transitionAnimator = [DMPushBounceAnimator new];
     DMGestureRecognizerTransition *exitGestureTransition = [DMGestureRecognizerTransition new];
-    [exitGestureTransition addGestureToView:vc.view direction:DMGestureRecognizerLeft];
+    [exitGestureTransition addGestureToView:vc.view direction:DMGestureRecognizerRight];
     [exitGestureTransition setGestureBeganCallback:^{
         [self dismissViewControllerAnimated:YES completion:nil];
     }];

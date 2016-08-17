@@ -21,7 +21,7 @@
     [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0 usingSpringWithDamping:0.6 initialSpringVelocity:0 options:UIViewAnimationOptionCurveLinear animations:^{
         toVC.view.frame = finalFrame;
     } completion:^(BOOL finished) {
-        [transitionContext completeTransition:YES];
+        [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
     }];
 }
 
