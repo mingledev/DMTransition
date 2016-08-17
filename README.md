@@ -1,1 +1,2 @@
 # DMTransition
+iOS开发中，自定义push、pop、present、dimiss的过场动画，支持手势驱动，扩展动画只需要继承DMTransitionAnimator并实现切入和切出两个方法，在方法中根据上下文即可实现自己想要的动画效果，详细请看demo。
